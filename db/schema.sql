@@ -3,10 +3,20 @@
 DROP TABLE IF EXISTS users03;
 CREATE TABLE users03 (
   id SERIAL PRIMARY KEY,
-  first_name text,
-  last_name text,
-  email VARCHAR(60),
-  username TEXT,
-  phone VARCHAR(12),
+  fname text,
+  lname text,
+  city VARCHAR(60),
+  website TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+DROP TABLE IF EXISTS user_profile_009;
+CREATE TABLE user_bio_001 (
+  id SERIAL PRIMARY KEY,
+  user_id int,
+  tag_line text,
+  bio text,
+  occupation VARCHAR(60),
+  hobby TEXT,
   created_at TIMESTAMP DEFAULT NOW()
 );
