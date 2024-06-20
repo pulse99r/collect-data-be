@@ -6,7 +6,7 @@ const db = require('../db/dbConfig.js')
 // * * ALL USERS
 userController.get('/', async (req, res) => {
   try {
-    const users = await bd.any('SELECT * FROM users03')
+    const users = await db.any('SELECT * FROM users03')
     res.status(200).json(users)
   } catch (error){
     res.status(400).json({error: 'Server not responding'})
