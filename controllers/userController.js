@@ -14,7 +14,8 @@ userController.get('/', async (req, res) => {
 })
 // * * SINGLE USER
 userController.get('/:id', async (req, res) => {
-  const id = req.params.id
+  // const id = req.params.id
+   const {id} = req.params
   try {
     const user = await db.any('SELECT * FROM users03 WHERE id=$1',[id])
     res.status(200).json(user)
@@ -37,6 +38,7 @@ userController.post('/', async (req, res) => {
 // * * delete USER
 userController.delete('/:id', async (req, res) => {
   const id = req.params.id
+ 
   
   try {
     const deletedUser = await db.one('DELETE FROM users03 WHERE id = $1, RETURNING id', [fname, lname, city, website, created_at]);

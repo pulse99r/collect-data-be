@@ -11,6 +11,8 @@ app.use('/users', userController )
 app.get('/', (req, res) => {
   res.send (`Welcome to the simple User Data App`)
 })
-// wwww.youtube.com ==> wwww.youtube.com/
-// wwww.youtube.com/video ==> wwww.youtube.com/video
+app.get('*', (req, res) => {
+  res.send (`This file is not available!`)
+})
+
 module.exports = app;

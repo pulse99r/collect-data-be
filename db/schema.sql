@@ -10,8 +10,8 @@ CREATE TABLE users03 (
   created_at TIMESTAMP DEFAULT NOW()
 );
 
-DROP TABLE IF EXISTS user_profile_009;
-CREATE TABLE user_bio_001 (
+DROP TABLE IF EXISTS user_profile_03;
+CREATE TABLE user_profile_03 (
   id SERIAL PRIMARY KEY,
   user_id int,
   tag_line text,
