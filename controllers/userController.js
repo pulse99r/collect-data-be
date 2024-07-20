@@ -3,6 +3,15 @@ const userController = express.Router()
 const db = require('../db/dbConfig.js')
 
 // * * * *  ROUTES * * * *
+// * * ALL USERS
+userController.get('/', async (req, res) => {
+  try {
+    const users = await db.any('SELECT * FROM users03')
+    res.status(200).json(users)
+  } catch (error){
+    res.status(400).json({error: 'Server not responding'})
+  }
+})
 // * * SINGLE USER
 userController.get('/:id', async (req, res) => {
   // const id = req.params.id
@@ -14,15 +23,7 @@ userController.get('/:id', async (req, res) => {
     res.status(400).json({error: 'Server not responding'})
   }
 })
-// * * ALL USERS
-userController.get('/', async (req, res) => {
-  try {
-    const users = await db.any('SELECT * FROM users03')
-    res.status(200).json(users)
-  } catch (error){
-    res.status(400).json({error: 'Server not responding'})
-  }
-})
+
 // * * CREATE USER
 userController.post('/', async (req, res) => {
   const {fname, lname, city, website, created_at} = req.body
